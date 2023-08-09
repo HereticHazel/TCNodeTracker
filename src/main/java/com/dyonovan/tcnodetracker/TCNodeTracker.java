@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 
 import org.apache.logging.log4j.LogManager;
@@ -69,5 +70,6 @@ public class TCNodeTracker {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new GuiPointer(Minecraft.getMinecraft()));
+        ClientCommandHandler.instance.registerCommand(new Exporter());
     }
 }
